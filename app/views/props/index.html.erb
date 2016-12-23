@@ -1,0 +1,14 @@
+<h1>Listing page</h1>
+
+<div class="row">
+  <div class="col-xs-8 col-xs-offset-2">
+    <% @props.each do |p| %>
+      <div class="well">                  
+        <h4><%= link_to p.name, p%></h4>
+        <h4 class="text-right">Price: <span style="color: green"><%= p.price %></span> L</h4>
+      </div>      
+    <% end %>
+  </div>
+</div>
+
+<%= link_to "New Listing", new_prop_path %>

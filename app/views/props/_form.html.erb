@@ -1,0 +1,11 @@
+<%= simple_form_for @prop do |f| %>
+  <%= f.input :name, label: "Property name" %>
+  <%= f.input :area, collection: [ "North", "South", "East", "West" ] %>
+  <%= f.input :sqft %>
+  <%= f.input :bhk, collection: [ "2BHK", "3BHK" ] %>
+  <%= f.input :price %>
+  <%= f.input :phone, lable: "Phone no", as: :string %>
+  <%= f.input :address, label: "Address/Location" %>
+  <%= f.input :url, label: "Link", as: :url %>
+  <%= f.button :submit %>
+<% end -%>
