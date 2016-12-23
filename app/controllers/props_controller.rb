@@ -1,7 +1,12 @@
 class PropsController < ApplicationController
   before_action :find_prop, only: [:show, :edit, :update, :destroy]
   def index
-    @props = Prop.all
+    if params[:category].blank?
+      @props = Prop.all
+    else
+      @category_id = Category.find_by(name: params[:category]).id
+      @props = Prop.where(category_id: @category_id)
+    end
   end
 
   def show    
@@ -43,6 +48,6 @@ class PropsController < ApplicationController
     end
 
     def prop_params
-      params.require(:prop).permit(:name, :phone, :area, :address, :url, :bhk, :price, :sqft)
+      params.require(:prop).permit(:name, :phone, :area, :address, :url, :bhk, :price, :sqft, :category_id)
     end
 end

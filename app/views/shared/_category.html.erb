@@ -1,0 +1,3 @@
+<% Category.all.each do |cat| %>
+  <li><%= link_to cat.name, props_path(category: cat.name) %><li>
+<% end -%>

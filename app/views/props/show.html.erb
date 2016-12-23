@@ -17,6 +17,11 @@
   <h4>Address: <%= @prop.address.truncate(100) %></h4>
 </div>
 
+<%= simple_form_for @prop do |f| %>
+  <%= f.collection_select :category_id, Category.all, :id, :name, { promp: "Choose a Category"}%>  
+  <%= f.button :submit %>
+<% end -%>
+
 
 <div class="btn-group">  
   <%= link_to "Edit", edit_prop_path(@prop), class: 'btn btn-primary'%>
