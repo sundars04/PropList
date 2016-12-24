@@ -1,6 +1,7 @@
 class PropsController < ApplicationController
   before_action :find_prop, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, except: [:index, :show]
+  before_action :same_user, only: [:edit, :delete]
 
   def index
     if params[:category].blank?
@@ -51,5 +52,11 @@ class PropsController < ApplicationController
 
     def prop_params
       params.require(:prop).permit(:name, :phone, :area, :address, :url, :bhk, :price, :sqft, :category_id)
+    end
+
+    def same_user
+      if current_user != @prop.user
+        redirect_to new_user_session_path, alert: "You can edit or delete only your listing"
+      end
     end
 end
