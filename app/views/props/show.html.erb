@@ -30,7 +30,7 @@
 </div>
 
 <div class="article-actions">  
-  <% if signed_in? %>
+  <% if signed_in? && (current_user == @prop.user) %>
     <%= link_to "Edit", edit_prop_path(@prop), class: 'btn btn-primary'%>
     <%= link_to "Delete", prop_path(@prop), method: :delete, data: { confirm: "Are you sure you want to delete this listing?" },class: 'btn btn-warning'%>
   <% end -%>
