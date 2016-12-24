@@ -23,4 +23,6 @@ class Prop < ApplicationRecord
 
   validates :name, presence: true
   validates :phone, presence: true
+
+  scope :sorted, -> { order("created_at DESC") }
 end

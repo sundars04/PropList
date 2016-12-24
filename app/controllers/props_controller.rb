@@ -6,10 +6,10 @@ class PropsController < ApplicationController
   def index
       @q = Prop.search(params[:q])
     if params[:category].blank?
-      @props = @q.result
+      @props = @q.result.sorted.page(params[:page]).per_page(7)
     else      
       @category_id = Category.find_by(name: params[:category]).id
-      @props = @q.result.where(category_id: @category_id)
+      @props = @q.result.where(category_id: @category_id).sorted.page(params[:page]).per_page(7)
     end
   end
 

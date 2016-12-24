@@ -17,6 +17,8 @@ gem 'devise', '~> 4.2'
 gem 'devise-bootstrapped', '~> 0.1.1'
 gem "font-awesome-rails"
 gem 'ransack'
+gem 'will_paginate', '~> 3.1.1'
+gem 'bootstrap-will_paginate'
 
 group :development, :test do
   gem 'byebug', platform: :mri
