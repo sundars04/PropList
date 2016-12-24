@@ -14,10 +14,12 @@
 #  phone       :integer
 #  price       :decimal(12, 3)
 #  category_id :integer
+#  user_id     :integer
 #
 
 class Prop < ApplicationRecord
-  belongs_to :category
+  belongs_to :category, {:optional => true}
+  belongs_to :user
 
   validates :name, presence: true
   validates :phone, presence: true

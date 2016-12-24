@@ -14,6 +14,7 @@
 #  phone       :integer
 #  price       :decimal(12, 3)
 #  category_id :integer
+#  user_id     :integer
 #
 
 require 'test_helper'

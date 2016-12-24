@@ -1,5 +1,7 @@
 class PropsController < ApplicationController
   before_action :find_prop, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:index, :show]
+
   def index
     if params[:category].blank?
       @props = Prop.all
@@ -13,11 +15,11 @@ class PropsController < ApplicationController
   end
 
   def new
-    @prop = Prop.new
+    @prop = current_user.props.build
   end
 
   def create
-    @prop = Prop.new(prop_params)
+    @prop = current_user.props.build(prop_params)
     if @prop.save
       redirect_to @prop, notice: "Property listing successfully saved"
     else
