@@ -18,6 +18,8 @@ gem "font-awesome-rails"
 gem 'ransack'
 gem 'will_paginate', '~> 3.1.1'
 gem 'bootstrap-will_paginate'
+gem 'acts_as_commentable_with_threading'
+
 
 group :development, :test do
   gem 'byebug', platform: :mri

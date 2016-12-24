@@ -13,7 +13,10 @@ class PropsController < ApplicationController
     end
   end
 
-  def show    
+  def show 
+    if signed_in?    
+      @new_comment = Comment.build_from(@prop, current_user.id, "")
+    end
   end
 
   def new

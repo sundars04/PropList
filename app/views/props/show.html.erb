@@ -35,3 +35,8 @@
     <%= link_to "Delete", prop_path(@prop), method: :delete, data: { confirm: "Are you sure you want to delete this listing?" },class: 'btn btn-warning'%>
   <% end -%>
 </div>
+<div class="container">
+  <%if signed_in? %>
+    <%= render partial: "comments/template", locals: {commentable: @prop, new_comment: @comment} %>
+  <% end -%>
+</div>

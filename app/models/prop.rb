@@ -25,4 +25,6 @@ class Prop < ApplicationRecord
   validates :phone, presence: true
 
   scope :sorted, -> { order("created_at DESC") }
+
+  acts_as_commentable
 end
