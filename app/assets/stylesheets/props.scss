@@ -1,3 +1,55 @@
 // Place all the styles related to the props controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.item {
+  border-bottom: 1px solid #e7e7e7;
+  padding-bottom: 1.5em;
+  .item-title {
+    font-family: 'Lato', sans-serif;
+    margin-top: 0;
+  }
+  .item-desc {
+    font-size: 1em;
+  }
+  .time-ago {
+    color: darken(#e7e7e7, 50%);
+    font-size: 0.55em;
+    letter-spacing: 1.25;
+  }
+  .item-sub-title {
+    margin-bottom: 0;
+  }
+}
+.item:nth-child(n+1) {
+  padding-top: 1.5em;
+}
+
+.link {
+  padding-right: 20px;
+  padding-left: 20px;
+}
+.article-btn {
+  color: #397CAC;
+  border: 1px solid #397CAC;
+  padding: .5em 1em;
+  border-radius: 0.2em;
+  text-decoration: none;
+  margin-right: 2%;
+}
+
+.article-actions {
+  text-align: center;
+} 
+.inline {
+  font-size: 15px;
+  p {
+    font-size: xx-large;
+    padding-bottom: 10px;
+  }
+  span {    
+    font-style: italic; 
+    color: Red; 
+    padding-right: 100px;
+  }
+}

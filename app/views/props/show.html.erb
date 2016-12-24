@@ -1,30 +1,37 @@
-<h2 align="center"><%= @prop.name %></h2>
-
-<div class="well">
-  <div class="prod-head">
-    <p style="float: left"><span style="color: green"><%= @prop.price %> L</span></p>
-    <p style="float: right"><span style="color: blue"><%= @prop.phone %></span></p>
+<div class="container">
+  
+  <div class="col-md-10 col-md-offset-1">
+    <h2 align="center"><%= @prop.name %></h2>
+    <div class="inline">
+      <p style="float: left">Price: <span style="color: green"><%= @prop.price %> L</span></p>
+      <p style="float: right">Phone: <span style="color: blue"><%= @prop.phone %></span></p><br><br><br>
+      <br><span><%= "Bangalore #{@prop.area}" %></span>
+      <span><%= @prop.bhk %></span>
+      <span><%= "#{@prop.sqft} SQFT" %></span>
+      
+    </div>
+    <br><p><%= @prop.address %></p>  
+    <br>
+    <p><%= link_to "Visit Link", @prop.url, target: "_blank", class: "article-btn" %></p>
+    <br>
   </div>
-  <br>
-  <br>
-  <div class="prod-det">
-    <h4 style="float: right"><%= link_to "Visit Link", @prop.url, target: "_blank"%></p>
-    <h4>Area: <%= @prop.area %> Bangalore</h4>    
-    <h4>bhk: <%= @prop.bhk %></h4>
 
+  <div class="col-md-10 col-md-offset-1">
+    <div class="pull-right">
+      <div class="category">
+        <%= simple_form_for @prop do |f| %>
+          <%= f.collection_select :category_id, Category.all, :id, :name, { prompt: "Choose a Category"}%>  
+          <%= f.button :submit, class: "btn btn-primary"%>
+        <% end -%>
+      </div>
+    </div>
   </div>
-  <br>
-  <h4>Address: <%= @prop.address %></h4>
+
 </div>
 
-<%= simple_form_for @prop do |f| %>
-  <%= f.collection_select :category_id, Category.all, :id, :name, { promp: "Choose a Category"}%>  
-  <%= f.button :submit %>
-<% end -%>
-
-<% if signed_in? %>
-  <div class="btn-group">  
+<div class="article-actions">  
+  <% if signed_in? %>
     <%= link_to "Edit", edit_prop_path(@prop), class: 'btn btn-primary'%>
     <%= link_to "Delete", prop_path(@prop), method: :delete, data: { confirm: "Are you sure you want to delete this listing?" },class: 'btn btn-warning'%>
-  </div>
-<% end -%>
+  <% end -%>
+</div>
