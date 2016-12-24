@@ -16,6 +16,7 @@ gem 'simple_form', '~> 3.3', '>= 3.3.1'
 gem 'devise', '~> 4.2'
 gem 'devise-bootstrapped', '~> 0.1.1'
 gem "font-awesome-rails"
+gem 'ransack'
 
 group :development, :test do
   gem 'byebug', platform: :mri

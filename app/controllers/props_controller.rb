@@ -4,11 +4,12 @@ class PropsController < ApplicationController
   before_action :same_user, only: [:edit, :delete]
 
   def index
+      @q = Prop.search(params[:q])
     if params[:category].blank?
-      @props = Prop.all
-    else
+      @props = @q.result
+    else      
       @category_id = Category.find_by(name: params[:category]).id
-      @props = Prop.where(category_id: @category_id)
+      @props = @q.result.where(category_id: @category_id)
     end
   end
 
