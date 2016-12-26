@@ -17,11 +17,13 @@
             <span><%= "Bangalore #{p.area}" %></span>
           </div>
           <p class="item-sub-title item-desc"><%= p.address.truncate(100) %></p>
-          <p style="opacity: 0.5;" class="time-created_at item-sub-title">Listed by <%= p.user.email %> <%= time_ago_in_words(p.created_at)%> ago</p>          
+          <p style="opacity: 0.5;" class="time-created_at item-sub-title">Listed by <%= p.user.email %> <%= time_ago_in_words(p.created_at)%> ago</p>
+          <p style="opacity: 0.5;" class="time-created_at item-sub-title">Listed in <%= p.category.name %></p>
         </div>          
       <% end %>
     </div>
   </div>  
 </div>
-
-<%= will_paginate @props, previous_label: "Previous", next_label: "Next" %>
+<div align="center">
+  <%= will_paginate @props, previous_label: "Previous", next_label: "Next"%>
+</div>

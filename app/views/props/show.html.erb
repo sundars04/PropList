@@ -11,6 +11,7 @@
       
     </div>
     <br><p><%= @prop.address %></p>  
+    <p style="opacity: 0.5;" class="time-created_at item-sub-title">Listed in <%= @prop.category.name %></p>
     <br>
     <p><%= link_to "Visit Link", @prop.url, target: "_blank", class: "article-btn" %></p>
     <br>
