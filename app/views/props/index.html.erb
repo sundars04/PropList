@@ -18,7 +18,9 @@
           </div>
           <p class="item-sub-title item-desc"><%= p.address.truncate(100) %></p>
           <p style="opacity: 0.5;" class="time-created_at item-sub-title">Listed by <%= p.user.email %> <%= time_ago_in_words(p.created_at)%> ago</p>
-          <p style="opacity: 0.5;" class="time-created_at item-sub-title">Listed in <%= p.category.name %></p>
+          <% if p.category %>
+            <p style="opacity: 0.5;" class="time-created_at item-sub-title">Listed in <%= p.category.name %></p>
+          <% end -%>
         </div>          
       <% end %>
     </div>
