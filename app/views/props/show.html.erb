@@ -10,7 +10,7 @@
       <span><%= "#{@prop.sqft} SQFT" %></span>
       
     </div>
-    <br><p><%= @prop.address %></p>  
+    <br><p><%= simple_format(@prop.address) %></p>  
     <% if @prop.category %>
       <p style="opacity: 0.5;" class="time-created_at item-sub-title">Listed in <%= @prop.category.name %></p>
     <% end -%>
