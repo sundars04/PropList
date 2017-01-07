@@ -39,7 +39,7 @@
   <% end -%>
 </div>
 <div class="container">
-  <%if signed_in? %>
+  
     <%= render partial: "comments/template", locals: {commentable: @prop, new_comment: @comment} %>
-  <% end -%>
+  
 </div>
